@@ -51,6 +51,10 @@ nav ul li a {
   margin: 0 auto 0 auto;
 }
 
+a:hover {
+  cursor: pointer;
+}
+
 nav ul li a:hover,
 nav ul li a.current {
   color: #808080;

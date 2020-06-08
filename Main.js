@@ -1,69 +1,100 @@
-let words = (function () {
-  let words = [
-      "Hello Everyone!",
-      "Good Morning",
-      "Good Afternoon",
-      "Good Evening",
-    ],
-    el = document.querySelector(".verb"),
-    currentIndex,
-    currentWord,
-    prevWord,
-    duration = 3000;
+const words = [
+  "Hello Everyone!",
+  "Good Morning",
+  "Good Afternoon",
+  "Good Evening",
+];
 
-  let _getIndex = function (max, min) {
-    currentIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+class Greeting {
+  constructor(words, duration) {
+    this.words = words;
+    this.el = document.querySelector(".verb");
+    this.currentIndex;
+    this.currentWord;
+    this.prevWord;
+    this.duration = duration;
+  }
 
-    //Generates a random number between beginning and end of words array
-    return currentIndex;
+  init = function () {
+    this._toggleWord(this.duration);
   };
 
-  let _getWord = function (index) {
-    currentWord = words[index];
+  _toggleWord = function (duration) {
+    setInterval(() => {
+      this.prevWord = this.currentWord;
 
-    return currentWord;
-  };
+      this.currentWord = this.words[this._getIndex(this.words.length - 1, 0)];
 
-  let _clear = function () {
-    setTimeout(function () {
-      el.className = "verb";
-    }, duration / 4);
-  };
-
-  let _toggleWord = function (duration) {
-    setInterval(function () {
-      //Stores value of previous word
-      prevWord = currentWord;
-
-      //Generate new current word
-      currentWord = words[_getIndex(words.length - 1, 0)];
-
-      //Generate new word if prev matches current
-      if (prevWord === currentWord) {
-        currentWord = words[_getIndex(words.length - 1, 0)];
+      if (this.prevWord === this.currentWord) {
+        this.currentWord = this.words[this._getIndex(this.words.length - 1, 0)];
       }
 
-      //Swap new value
-      el.innerHTML = currentWord;
+      this.el.innerHTML = this.currentWord;
 
-      //Clear class styles
-      _clear();
+      this._clear(duration);
 
-      //Fade in word
-      el.classList.add("js-block", "js-fade-in-verb");
+      this.el.classList.add("js-block", "js-fade-in-verb");
     }, duration);
   };
 
-  let _init = function () {
-    _toggleWord(duration);
+  _getIndex = function (max, min) {
+    this.currentIndex = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    return this.currentIndex;
   };
 
-  //Public API
-  return {
-    init: function () {
-      _init();
-    },
+  _clear = function (duration) {
+    setTimeout(() => {
+      this.el.className = "verb";
+    }, duration / 4);
   };
-})();
+}
 
-words.init();
+const changeRoute = (route, sectionNames, link, links) => {
+  const passiveSections = sectionNames.filter((name) => name !== route);
+
+  passiveSections.forEach((sectionName) => {
+    const section = document.querySelector(`.${sectionName}`);
+    section.style.display = "none";
+  });
+
+  const activeSection = document.querySelector(`.${route}`);
+  activeSection.style.display = "block";
+
+  link.classList.add("current");
+
+  links
+    .filter((_link) => _link !== link)
+    .forEach((link) => {
+      link.classList.remove("current");
+    });
+};
+
+const addRouting = () => {
+  const homeLink = document.getElementById("home-link");
+  const aboutLink = document.getElementById("about-link");
+  const projectsLink = document.getElementById("projects-link");
+  const contactLink = document.getElementById("contact-link");
+
+  const links = [homeLink, aboutLink, projectsLink, contactLink];
+
+  const sectionNames = links.reduce(
+    (acc, cur) => acc.concat(cur.getAttribute("data-controls")),
+    []
+  );
+
+  changeRoute("home", sectionNames, homeLink, links);
+
+  links.forEach((link) => {
+    link.addEventListener("click", () =>
+      changeRoute(link.getAttribute("data-controls"), sectionNames, link, links)
+    );
+  });
+};
+
+const init = () => {
+  new Greeting(words, 3000).init();
+  addRouting();
+};
+
+document.addEventListener("DOMContentLoaded", init);
