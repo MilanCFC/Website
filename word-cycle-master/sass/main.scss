@@ -1,0 +1,94 @@
+/********************************** reset ********/
+* {
+	list-style:none;
+	border:0;
+	text-decoration:none;
+	margin:0;
+	padding:0;
+	outline:0;
+}
+
+
+
+@-moz-keyframes fade-it {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fade-it{
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes fade-it {
+
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@mixin js-fade-in($speed) {
+	animation-name: fade-it;
+	animation-duration: $speed;
+	animation-fill-mode: forwards;
+	-webkit-animation-name: fade-it;
+	-webkit-animation-duration: $speed;
+	-webkit-animation-fill-mode: forwards;
+}
+
+.js-fade-in-verb {
+	@include js-fade-in(1s);
+}
+
+.shell {
+	position:relative;
+	width:80%;
+	margin:25px auto;
+}
+
+h1 {
+	position: relative;
+	width: 100%;
+	margin:0 auto 50px auto;
+	text-align: center;
+	line-height:1.25;
+}
+
+.verb.js-block {
+	display:inline-block;
+}
+
+.verb.js-hide {
+	display:none;
+	opacity:0;
+}
+
+.verb {
+	display: inline-block;
+	visibility:visible;
+	border-bottom:1px solid;
+}
+
+//IE9
+html.ie9 {
+
+	.items li {
+		//opacity: 1 !important;
+	}
+}

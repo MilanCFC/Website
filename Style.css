@@ -1,0 +1,348 @@
+body {
+  color: #ddd;
+  background: #aeaca8;
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+  font-size: 24px;
+  margin: 0px;
+}
+
+.wrapper {
+  display: grid;
+}
+
+.wrapper h1 {
+  padding: 5rem 3rem;
+  font-size: 36px;
+}
+
+header {
+  background: url(img/logo.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  min-height: 350px;
+  margin-bottom: 0px;
+}
+
+nav {
+  display: grid;
+  margin-top: 0;
+  background: #aeaca8;
+}
+
+nav ul {
+  display: grid;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+nav ul li {
+  display: grid;
+  margin: 20px;
+  font-size: 17px;
+}
+
+nav ul li a {
+  display: grid;
+  color: #fff;
+  text-decoration: none;
+  margin: 0 auto 0 auto;
+}
+
+nav ul li a:hover,
+nav ul li a.current {
+  color: #808080;
+}
+
+.home .greetings {
+  display: grid;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.home .intro,
+.sections {
+  display: grid;
+  text-align: center;
+  max-width: 1000px;
+  margin: 25px auto;
+  padding: 0 25px;
+  border-bottom: thin solid;
+}
+
+.home .sections a {
+  text-decoration: none;
+}
+
+.home .sections a:visited {
+  color: #ddd;
+}
+
+.home .reachout {
+  display: grid;
+  text-align: center;
+  max-width: 1000px;
+  margin: 25px auto 5px auto;
+  padding: 0 25px;
+}
+
+.home .reachout .btn {
+  background: #990000;
+  color: #fff;
+  padding: 0.6rem 1.3rem;
+  text-decoration: none;
+  border: 0;
+  border-radius: 10px;
+  max-width: 150px;
+  margin: 5px auto 5rem auto;
+}
+
+.home .reachout .btn:hover {
+  color: #fff;
+  background: #800000;
+}
+
+.about1 {
+  display: grid;
+  grid-gap: 15px;
+  padding: 7rem;
+  padding-bottom: 3rem;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.about1 img {
+  border-radius: 50%;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto 0 auto;
+}
+
+.about1 .text {
+  margin: 0 auto 0 auto;
+}
+
+.about-me h1 {
+  padding-left: 5rem;
+}
+
+.skills {
+  display: grid;
+  padding: 0 6rem 0 6rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.skills h4 {
+  font-weight: normal;
+}
+
+.about-me .LI-info {
+  padding: 5rem 0 4rem 5rem;
+  font-size: 28px;
+}
+
+.about-me .LI-info a {
+  text-decoration: none;
+}
+
+.about-me .LI-info a:link,
+.about-me .LI-info a:visited {
+  color: #ddd;
+}
+
+.projects {
+  display: grid;
+  padding-bottom: 5rem;
+}
+
+.projects h2 {
+  padding: 5rem 0 0 5rem;
+}
+
+.projects .title {
+  padding: 4rem 0 0 7rem;
+}
+
+.projects .calc p {
+  padding-left: 10rem;
+  padding-right: 10rem;
+}
+
+.projects .calc .images {
+  padding-left: 10rem;
+}
+
+.projects .calc img {
+  max-width: 100%;
+  height: auto;
+}
+
+.contact {
+  display: grid;
+  padding-bottom: 5rem;
+}
+
+.contact h1 {
+  padding: 5rem 0 0 5rem;
+}
+
+.contact .personal,
+.social {
+  padding: 4rem 0 0 7rem;
+}
+
+.contact h2 {
+  margin-bottom: 3rem;
+}
+
+.contact .personal p {
+  padding-left: 3rem;
+}
+
+.contact .social .icons {
+  padding-left: 3rem;
+}
+
+.contact .social i:hover {
+  color: #fff;
+}
+
+.contact .social a:link,
+.contact .social a:visited {
+  color: #ddd;
+}
+
+footer {
+  text-align: right;
+  padding: 5px 15px;
+  color: #fff;
+  background: #333;
+  margin-top: 2rem;
+}
+
+footer p {
+  font-size: 16px;
+}
+
+blink {
+  display: inline;
+  color: inherit;
+  animation: blink 1s steps(1) infinite;
+  -webkit-animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    color: transparent;
+  }
+}
+
+/* Greetings animation start */
+@-moz-keyframes fade-it {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fade-it {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-it {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.js-fade-in-verb {
+  animation-name: fade-it;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  -webkit-animation-name: fade-it;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.verb.js-block {
+  display: inline-block;
+}
+
+.verb.js-hide {
+  display: none;
+  opacity: 0;
+}
+
+.verb {
+  display: inline-block;
+  visibility: visible;
+  color: #ddd;
+  font-size: 4rem;
+}
+/* Greetings animation end */
+
+@media (max-width: 1260px) {
+  .about-me .skills {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 850px) {
+  nav ul {
+    display: block;
+  }
+
+  nav ul li {
+    text-align: center;
+  }
+
+  .wrapper h1 {
+    font-size: 33px;
+  }
+
+  .home h2 .verb {
+    font-size: 3rem;
+  }
+
+  .about-me .skills {
+    grid-template-columns: 1fr;
+  }
+
+  .about-me .LI-info {
+    margin-right: 3rem;
+  }
+
+  .projects .calc .title {
+    padding: 4rem 0 0 5.5rem;
+  }
+
+  .projects .calc p {
+    padding-right: 5rem;
+  }
+
+  .projects .calc .images {
+    margin-right: 3rem;
+  }
+
+  .contact .personal,
+  .social {
+    padding: 4rem 0 0 5.5rem;
+  }
+}
